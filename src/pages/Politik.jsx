@@ -3,7 +3,7 @@ import Card from "../components/Card";
 import TopicPopuler_Card from "../components/TopicPopuler_Card";
 import React, { useEffect, useState } from "react";
 
-const News = ({ category }) => {
+const Politik = ({ category }) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -34,16 +34,8 @@ const News = ({ category }) => {
   return (
     <div className="w-full h-full font-mulish">
       <div className=" ml-3 text-xl font-bold text-[#F60E2A] mt-3">
-        TOPIK POPULER
+        TOPIK POLITIK
       </div>
-      {/* Grid untuk kartu */}
-      <div className="ml-3 grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        <TopicPopuler_Card title="#Beritaku 1" />
-        <TopicPopuler_Card title="#Beritaku 2" />
-        <TopicPopuler_Card title="#Beritaku 3" />
-        <TopicPopuler_Card title="#Beritaku 4" />
-      </div>
-      <div className="ml-3 text-xl font-bold text-[#F60E2A] mt-3">NEWS</div>
       {/* Grid container for cards */}
       <div className="ml-1 grid grid-cols-2 gap-4 pb-4  md:ml-3 lg:pb-0 lg:grid-cols-4 mt-4">
         {Array.isArray(data) && data.length > 0 ? (
@@ -63,4 +55,4 @@ const News = ({ category }) => {
   );
 };
 
-export default News;
+export default Politik;

@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  console.log(isActive("/category/home"));
+  console.log(isActive("/category/news"));
 
   return (
     <div className="w-full bg-[#C9C7C5]">
@@ -63,18 +63,6 @@ const Navbar = () => {
                   </a>
                   <li>
                     <Link
-                      to={"/category/home"}
-                      className={`btn w-full rounded-full border-none  hover:bg-[#BC1529] hover:text-white ${
-                        isActive("/category/home")
-                          ? "bg-[#BC1529] text-white"
-                          : "bg-gray-300 text-black "
-                      } text-2xl font-bold shadow-purple-400/50 shadow-md`}
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       to={"/category/news"}
                       className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
                         isActive("/category/news")
@@ -87,26 +75,38 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      to={"/category/sport"}
-                      className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
-                        isActive("/category/sport")
+                      to={"/category/hukum"}
+                      className={`btn w-full rounded-full border-none  hover:bg-[#BC1529] hover:text-white ${
+                        isActive("/category/hukum")
                           ? "bg-[#BC1529] text-white"
-                          : " bg-gray-300 text-black"
+                          : "bg-gray-300 text-black "
                       } text-2xl font-bold shadow-purple-400/50 shadow-md`}
                     >
-                      Sport
+                      Hukum
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to={"/category/hot"}
+                      to={"/category/ekonomi"}
                       className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
-                        isActive("/category/hot")
+                        isActive("/category/ekonomi")
                           ? "bg-[#BC1529] text-white"
                           : " bg-gray-300 text-black"
                       } text-2xl font-bold shadow-purple-400/50 shadow-md`}
                     >
-                      Hot
+                      Ekonomi
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/category/politik"}
+                      className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
+                        isActive("/category/politik")
+                          ? "bg-[#BC1529] text-white"
+                          : " bg-gray-300 text-black"
+                      } text-2xl font-bold shadow-purple-400/50 shadow-md`}
+                    >
+                      Politik
                     </Link>
                   </li>
                 </ul>
@@ -173,12 +173,12 @@ const Navbar = () => {
           {showDropdown && (
             <div className="mt-4 bg-white rounded-lg shadow-lg">
               {[
-                "/category/home",
                 "/category/news",
-                "/category/sport",
-                "/category/hot",
-                "/category/lifestyle",
-                "/category/business",
+                "/category/hukum",
+                "/category/ekonomi",
+                "/category/politik",
+                "/category/keuangan",
+                "/category/internasional",
               ].map((path, index) => (
                 <Link
                   key={index}
@@ -189,7 +189,7 @@ const Navbar = () => {
                       : "hover:bg-[#BC1529] "
                   } shadow-purple-600`}
                 >
-                  {path === "/" ? "HOME" : path.split("/")[2].toUpperCase()}
+                  {path === "/" ? "NEWS" : path.split("/")[2].toUpperCase()}
                 </Link>
               ))}
             </div>
@@ -199,12 +199,12 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden sm:flex flex-wrap justify-center gap-4 px-4 sm:gap-6 lg:gap-12 py-4 shadow-lg">
           {[
-            { path: "/category/home", label: "HOME" },
             { path: "/category/news", label: "NEWS" },
-            { path: "/category/sport", label: "SPORT" },
-            { path: "/category/hot", label: "HOT" },
-            { path: "/category/lifestyle", label: "LIFESTYLE" },
-            { path: "/category/business", label: "BUSINESS" },
+            { path: "/category/hukum", label: "HUKUM" },
+            { path: "/category/ekonomi", label: "EKONOMI" },
+            { path: "/category/politik", label: "POLITIK" },
+            { path: "/category/keuangan", label: "KEUANGAN" },
+            { path: "/category/internasional", label: "INTERNASIONAL" },
           ].map(({ path, label }, index) => (
             <Link
               key={index}
