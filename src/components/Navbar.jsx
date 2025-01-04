@@ -109,6 +109,30 @@ const Navbar = () => {
                       Politik
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to={"/category/keuangan"}
+                      className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
+                        isActive("/category/keuangan")
+                          ? "bg-[#BC1529] text-white"
+                          : " bg-gray-300 text-black"
+                      } text-2xl font-bold shadow-purple-400/50 shadow-md`}
+                    >
+                      Keuangan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={"/category/internasional"}
+                      className={`btn w-full rounded-full  border-none hover:bg-[#BC1529] hover:text-white   ${
+                        isActive("/category/internasional")
+                          ? "bg-[#BC1529] text-white"
+                          : " bg-gray-300 text-black"
+                      } text-2xl font-bold shadow-purple-400/50 shadow-md`}
+                    >
+                      Internasional
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
