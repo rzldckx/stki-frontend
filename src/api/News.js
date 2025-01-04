@@ -1,9 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 const fetchData = async ({ category, page }) => {
   try {
-    const baseUrl =
-      import.meta.env.VITE_API_URL || "http://127.0.0.1:5000/news?category&page=1"; // URL API Flask 
+    const baseUrl = `${import.meta.env.VITE_API_URL}/news`;
 
     const url = category
       ? `${baseUrl}?category=${category}&page=${page}`

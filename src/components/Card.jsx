@@ -1,9 +1,14 @@
-const Card = ({title, image, category }) => {
+import { useNavigate } from "react-router-dom";
+
+const Card = ({url, title, image, category }) => {
+
+  const navigator = useNavigate();
   return (
     <>
-      <div
-        className="card w-44 sm:w-60 md:w-80 lg:w-60 xl:w-72 2xl:w-1/4 rounded-2xl bg-white  transition-all duration-300"
-        // data-aos="fade-up"
+      <button
+        onClick={() => navigator(url)}
+        className="card w-44 sm:w-60 md:w-80 lg:w-60 xl:w-72 2xl:w-1/4 rounded-2xl bg-white  transition-all duration-300 cursor-pointer"
+        // data-aos="fade-up"d
         // data-aos-duration="2000"
       >
         <figure>
@@ -21,7 +26,7 @@ const Card = ({title, image, category }) => {
             {category}
           </p>
         </div>
-      </div>
+      </button>
     </>
   );
 };

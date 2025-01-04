@@ -34,14 +34,11 @@ const PreviewArticle_Card = ({
           />
         </figure>
         <div className="text-left bg-transparent p-1">
-          {content.map((paragraph, index) => (
             <p
-              key={index}
               className="card-summary text-base sm:text-sm md:text-xl lg:text-lg xl:text-2xl text-justify mb-4"
             >
-              {paragraph}
+              {content}
             </p>
-          ))}
           <p className=" text-base md:text-xl xl:text-2xl">
             Source:{" "}
             <a

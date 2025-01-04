@@ -1,10 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [search, setSearch] = useState("");
   const location = useLocation();
+  const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
@@ -14,9 +19,24 @@ const Navbar = () => {
     setShowDropdown(!showDropdown);
   };
 
-  const isActive = (path) => location.pathname === path;
+  const handleSearchButton = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/search?q=${search}`
+      );
+      const results = await response.data?.news;
+  
+      setData(results);
+  
+      // Navigasi ke SearchPages dengan data hasil pencarian
+      navigate("/search", { state: { results } });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  console.log(data);
 
-  console.log(isActive("/category/news"));
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="w-full bg-[#C9C7C5]">
@@ -153,6 +173,7 @@ const Navbar = () => {
                     type="text"
                     placeholder="Apa yang ingin anda baca hari ini?"
                     className="input input-bordered rounded-3xl w-full text-xs lg:text-xl"
+                    onChange={(e) => setSearch(e.target.value)}
                     data-aos="fade-left"
                     data-aos-duration="2000"
                   />
@@ -160,6 +181,7 @@ const Navbar = () => {
                     className="btn btn-active rounded-full shadow-2xl text-white bg-[#BC1529] hover:bg-[#BC1529]"
                     data-aos="fade-left"
                     data-aos-duration="3000"
+                    onClick={handleSearchButton}
                   >
                     Cari
                   </button>
