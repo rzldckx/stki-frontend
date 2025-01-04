@@ -11,8 +11,8 @@ const News = ({ category }) => {
     const fetchData = async () => {
       try {
         const url = category
-          ? `${import.meta.env.VITE_API_URL}?category=${category}&page=1`
-          : `${import.meta.env.VITE_API_URL}?page=1`;
+          ? `${import.meta.env.VITE_API_URL}/news?category=${category}&page=1`
+          : `${import.meta.env.VITE_API_URL}/news?page=1`;
 
         const response = await axios.get(url);
         const news = await response.data?.news;

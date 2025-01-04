@@ -6,8 +6,8 @@ const fetchData = async ({ category, page }) => {
       import.meta.env.VITE_API_URL || "http://127.0.0.1:5000/news?category&page=1"; // URL API Flask 
 
     const url = category
-      ? `${baseUrl}?category=${category}&page=${page}`
-      : `${baseUrl}?page=${page}`;
+      ? `${baseUrl}/news?category=${category}&page=${page}`
+      : `${baseUrl}/news?page=${page}`;
 
     const response = await axios.get(url);
     console.log("API Response:", response.data); // Log untuk debugging

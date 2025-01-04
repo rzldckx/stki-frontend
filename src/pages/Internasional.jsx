@@ -4,8 +4,7 @@ import Card from "../components/Card";
 import fetchData from "../api/News";
 import axios from "axios";
 
-
-const Internasional = ({category}) => {
+const Internasional = ({ category }) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
@@ -13,8 +12,8 @@ const Internasional = ({category}) => {
     const fetchData = async () => {
       try {
         const url = category
-          ? `${import.meta.env.VITE_API_URL}?category=${category}&page=1`
-          : `${import.meta.env.VITE_API_URL}?page=1`;
+          ? `${import.meta.env.VITE_API_URL}/news?category=${category}&page=1`
+          : `${import.meta.env.VITE_API_URL}/news?page=1`;
 
         const response = await axios.get(url);
         const news = await response.data?.news;
