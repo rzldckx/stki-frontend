@@ -8,27 +8,26 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import Category from "./pages/Category";
 import NewsDetails from "./pages/NewsDetails";
-import SearchPages from "./pages/SearchPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   useEffect(() => {
     Aos.init();
     Aos.refresh();
   }, []);
+
   return (
-    <>
-      <div className="font-mulish">
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<News />} />
-            <Route path="/search" element={<SearchPages />} />
-            <Route path="/category/:category" element={<Category />} />
-            <Route path="/news/:id" element={<NewsDetails />} />
-          </Routes>
-        </Router>
-      </div>
-    </>
+    <div className="font-mulish">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<News />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/category/:category" element={<Category />} />
+          <Route path="/news/:id" element={<NewsDetails />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
